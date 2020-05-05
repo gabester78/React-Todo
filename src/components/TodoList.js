@@ -2,13 +2,16 @@ import React from "react";
 import Todo from "./Todo";
 
 const TodoList = (props) => {
+  console.log(props, "Todolist props");
   return (
     <div className="todoListContainer">
-      {props.todoList.map((todo) => (
-        <Todo key={todo.id} todo={todo} />
+      {/* map though todoList from app.js and display information */}
+      {props.todoList.map((data) => (
+        // feed todo component props data & function
+        <Todo data={data} changeTodoBoolean={props.changeTodoBoolean} />
       ))}
-      <button>Add Todo</button>
-      <button onClick={props.clearTodo}>Clear Todo</button>
+      {/* feed onClick function to props data */}
+      <button onClick={props.clearTodos}>Clear Completed Todo Items</button>
     </div>
   );
 };
